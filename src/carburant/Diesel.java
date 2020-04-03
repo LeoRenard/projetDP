@@ -1,15 +1,11 @@
 package carburant;
 
+public class Diesel implements Carburant {
 
+	@Override
+	public void infos() {
+		System.out.println("Faible consommation, convient très bien pour les longues distances.");
+		
+	}
 
-/**
- * Class Diesel
- */
-public class Diesel extends Carburant {
-
-  public Diesel () { 
-	  this.setNomCarbu("Diesel");
-	  this.setPrixLitre(1.27f);
-  };
-  
 }

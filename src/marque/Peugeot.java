@@ -1,14 +1,13 @@
 package marque;
 
+public class Peugeot implements Marque{
 
+	public String nom() {
+		return "Peugeot";
+	}
 
-/**
- * Class Peugeot
- */
-public class Peugeot extends Marque {
-
-  public Peugeot () { 
-	  this.setNom("Peugeot");
-  };
+	public float prix() {
+		return 4000f;
+	}
 
 }

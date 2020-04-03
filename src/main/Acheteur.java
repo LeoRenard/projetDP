@@ -1,6 +1,8 @@
 package main;
 import java.util.ArrayList;
 
+import voiture.Voiture;
+
 /**
  * Class Acheteur
  */
@@ -92,7 +94,7 @@ public class Acheteur {
 
 		String voit = "Voitures : "+"\n";
 		for(Voiture v : voitures) {
-			voit+= "- "+v.toStringAfficheMini()+"\n";
+			voit+= "- "+v.getNom()+"\n";
 		}
 		
 		System.out.println(voit);

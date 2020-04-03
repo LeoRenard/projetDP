@@ -1,47 +1,32 @@
-package main;
+package voiture;
 
-import java.util.*;
+import java.util.ArrayList;
 
-import assurance.*;
-import carburant.*;
-import modele.*;
-import option.*;
+import assurance.Assurance;
+import assurance.AucuneAssurance;
+import carburant.Carburant;
+import marque.Marque;
+import option.Option;
 
-/**
- * Class Voiture
- */
-public class Voiture {
+public abstract class Voiture {
+	
+	protected float prix;
+	protected String nom;
+	
+	protected ArrayList<Option> options;
+	
+	protected Assurance assurance = new AucuneAssurance();
+	protected Carburant carburant;
+	protected Marque marque;
 
-	//
-	// Fields
-	//
-
-	private float prix;
-	private String nom;
-	private ArrayList<Option> options;
-	private Assurance assurance;
-	private Carburant carburant;
-	private Modele modele;
-
-
-	public Voiture () { 
-
-		this.options = new ArrayList<Option>();
-
-	};
-
-	public Voiture (Carburant carburant, Modele modele) { 
-
-		this.options = new ArrayList<Option>();
-		this.carburant = carburant;
-		this.modele = modele;
-		this.setNom(modele.toString());
-		this.setPrix(modele.getPrix());
-		
-
-	};
-
-
+	public void infoConsommation() {
+		carburant.infos();
+	}
+	
+	public void infoAssurance() {
+		assurance.infosAssurance();
+	}
+	
 	public void addOption(Option option) {
 		this.options.add(option);
 		this.prix+=option.getPrix();
@@ -87,12 +72,12 @@ public class Voiture {
 		return carburant;
 	}
 
-	public void setModele (Modele newVar) {
-		modele = newVar;
+	public void setMarque (Marque newVar) {
+		marque = newVar;
 	}
 
-	public Modele getModele () {
-		return modele;
+	public Marque getMarque () {
+		return marque;
 	}
 
 	public String toString() {
@@ -109,12 +94,10 @@ public class Voiture {
 		System.out.println(toString());
 	}
 	
-	public String toStringAfficheMini() {
-		return this.modele.getNom();
+	
+	public void afficherNom() {
+		System.out.println(this.nom);
 	}
 	
-	public void afficherMini() {
-		System.out.println(this.modele.toString());
-	}
-	
+
 }

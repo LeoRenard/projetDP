@@ -1,15 +1,11 @@
 package carburant;
 
+public class Essence implements Carburant {
 
-
-/**
- * Class Essence
- */
-public class Essence extends Carburant {
-
-  public Essence () { 
-	  this.setNomCarbu("Essence");
-	  this.setPrixLitre(1.41f);
-  };
+	@Override
+	public void infos() {
+		System.out.println("Consommation importante, idéal pour les cours trajets.");
+		
+	}
 
 }

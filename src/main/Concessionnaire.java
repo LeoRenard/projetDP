@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import singleton.HistoriqueVenteSingleton;
+import voiture.Voiture;
 
 /**
  * Class Concessionnaire
@@ -52,7 +53,7 @@ public class Concessionnaire {
 					
 					System.out.println("Achat bien effectué !");
 					
-					String msgJournalisation = "\n"+voiture.toStringAfficheMini()+" prix : "+voiture.getPrix()+
+					String msgJournalisation = "\n"+voiture.getNom()+" prix : "+voiture.getPrix()+
 							" euros; Vendu par "+vendeur.getNom();
 					HistoriqueVenteSingleton.getInstance().journaliser(msgJournalisation, this);
 					HistoriqueVenteSingleton.getInstance().terminerJournal();

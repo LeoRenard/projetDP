@@ -1,15 +1,11 @@
 package carburant;
 
+public class Hybride implements Carburant {
 
-
-/**
- * Class Hybride
- */
-public class Hybride extends Carburant {
-
-  public Hybride () { 
-	  this.setNomCarbu("Hybride");
-	  this.setPrixLitre(1.0f);
-  };
+	@Override
+	public void infos() {
+		System.out.println("Convient pour tout type de trajet.");
+		
+	}
 
 }

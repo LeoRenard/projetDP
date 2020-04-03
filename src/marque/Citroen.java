@@ -1,14 +1,13 @@
 package marque;
 
+public class Citroen implements Marque{
 
+	public String nom() {
+		return "Citroen";
+	}
 
-/**
- * Class Citroen
- */
-public class Citroen extends Marque {
-
-  public Citroen () { 
-	  this.setNom("Citroën");
-  };
+	public float prix() {
+		return 3500f;
+	}
 
 }
