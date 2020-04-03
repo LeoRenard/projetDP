@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Scanner;
 
+import voiture.abstractVoiture;
+
 /**
  * Class Concessionnaire
  */
@@ -14,14 +16,14 @@ public class Concessionnaire {
 	private String nom;
 	private String adresse;
 	private String numTel;
-	private ArrayList<Voiture> voitures;
+	private ArrayList<abstractVoiture> voitures;
 	private ArrayList<Vendeur> vendeurs;
 	private Acheteur acheteur;
 	private Map<String,ArrayList<String>> horaires;
 
 
 	public Concessionnaire () { 
-		voitures = new ArrayList<Voiture>();
+		voitures = new ArrayList<abstractVoiture>();
 		vendeurs = new ArrayList<Vendeur>();
 	};
 
@@ -29,11 +31,11 @@ public class Concessionnaire {
 		this.nom = nom;
 		this.adresse = adresse;
 		this.numTel = numTel;
-		voitures = new ArrayList<Voiture>();
+		voitures = new ArrayList<abstractVoiture>();
 		vendeurs = new ArrayList<Vendeur>();
 	};
 
-	public void transaction(Voiture voiture, Vendeur vendeur) {
+	public void transaction(abstractVoiture voiture, Vendeur vendeur) {
 		if(acheteur == null) {
 			System.out.println("Aucune personne ne veut acheter cette voiture");
 		}
@@ -59,7 +61,7 @@ public class Concessionnaire {
 	
 	}
 
-	public void addVoiture(Voiture voiture) {
+	public void addVoiture(abstractVoiture voiture) {
 		voitures.add(voiture);
 	}
 
@@ -95,7 +97,7 @@ public class Concessionnaire {
 		return numTel;
 	}
 
-	public void setVoitures (ArrayList<Voiture> newVar) {
+	public void setVoitures (ArrayList<abstractVoiture> newVar) {
 		voitures = newVar;
 	}
 
@@ -159,7 +161,7 @@ public class Concessionnaire {
 		String voit = "Voitures disponibles : "+"\n";
 
 		if(voitures != null) {
-			for(Voiture v : voitures) {
+			for(abstractVoiture v : voitures) {
 				voit+= "- "+v.toString()+"\n";
 			}
 		}

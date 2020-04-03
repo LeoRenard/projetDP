@@ -1,46 +1,25 @@
 package option;
 
-
+import voiture.abstractVoiture;
 
 /**
  * Class Option
  */
-public class Option {
+public abstract class Option extends abstractVoiture {
 
-  //
-  // Fields
-  //
 
-  private String nom;
-  private float prix;
+	abstractVoiture voiture;
+	String description;
+	float cout;
   
-  //
-  // Constructors
-  //
-  public Option () { };
+  public float getCout() {
+		return voiture.getPrix() + cout;
+	}
+	
+  public String getDescription() {
+		return voiture.getDescription() + description;
+	}
+
+ 
   
-  public void setNom (String newVar) {
-    nom = newVar;
-  }
-
-  public String getNom () {
-    return nom;
-  }
-
-  public void setPrix (float newVar) {
-    prix = newVar;
-  }
-
-  public float getPrix () {
-    return prix;
-  }
-  
-  public String toString() {
-	  return this.nom+" "+this.prix;
-  }
-  
-  public void afficher() {
-	  System.out.println(this.nom+" "+this.prix+" euros ");
-  }
-
 }

@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import voiture.abstractVoiture;
+
 /**
  * Class Acheteur
  */
@@ -16,13 +18,13 @@ public class Acheteur {
 	private String email;
 	private float budget;
 
-	private ArrayList<Voiture> voitures;
+	private ArrayList<abstractVoiture> voitures;
 
 	//
 	// Constructors
 	//
 	public Acheteur () { 
-		this.voitures = new ArrayList<Voiture>();
+		this.voitures = new ArrayList<abstractVoiture>();
 	};
 
 	public Acheteur(String nom, String prenom, String numTel, String adresse, String email, float budget) {
@@ -32,10 +34,10 @@ public class Acheteur {
 		this.adresse = adresse;
 		this.email = email;
 		this.budget = budget;
-		this.voitures = new ArrayList<Voiture>();
+		this.voitures = new ArrayList<abstractVoiture>();
 	}
 
-	public void addVoiture(Voiture voiture) {
+	public void addVoiture(abstractVoiture voiture) {
 		this.voitures.add(voiture);
 	}
 
@@ -90,8 +92,8 @@ public class Acheteur {
 	public void afficherVoitureParticulier() {
 
 		String voit = "Voitures : "+"\n";
-		for(Voiture v : voitures) {
-			voit+= "- "+v.toStringAfficheMini()+"\n";
+		for(abstractVoiture v : voitures) {
+			voit+= "- "+v.getNom()+"\n";
 		}
 		
 		System.out.println(voit);

@@ -1,13 +1,14 @@
 package option;
 
-
+import voiture.abstractVoiture;
 
 /**
  * Class ToitOuvrant
  */
 public class ToitOuvrant extends Option {
 
-  public ToitOuvrant () { 
+  public ToitOuvrant (abstractVoiture voiture) { 
+	  this.voiture = voiture;
 	  this.setNom("Toit ouvrant");
 	  this.setPrix(300);
   };
