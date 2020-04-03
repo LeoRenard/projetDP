@@ -9,7 +9,7 @@ public class ToitOuvrant extends Option {
 
   public ToitOuvrant (abstractVoiture voiture) { 
 	  this.voiture = voiture;
-	  this.setNom("Toit ouvrant");
+	  this.setDescription("Option : Toit ouvrant");
 	  this.setPrix(300);
   };
   

@@ -7,13 +7,20 @@ package comportement_carburant;
  */
 public class Essence implements ComportementCarburant {
 
-  public void setCarburant() { 
-	  System.out.println("Essence");
-	  //this.setPrixLitre(1.41f);
-  };
 
   public float getPrix() {
 	  return 200;
   }
+
+@Override
+public String setCarburant() {
+	return "Carburant : Essence ";
+}
+
+@Override
+public void afficheCarburant() {
+	// TODO Auto-generated method stub
+	System.out.println("Essence");
+}
   
 }

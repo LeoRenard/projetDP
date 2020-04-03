@@ -8,9 +8,10 @@ import voiture.abstractVoiture;
 public class RadarDeRecul extends Option {
 
   public RadarDeRecul (abstractVoiture voiture) { 
-	  this.setNom("Radar de recul");
-	  this.setPrix(150);
 	  this.voiture = voiture;
+
+	  this.setDescription("Option : Radar de recul");
+	  this.setPrix(150);
   };
  
 }

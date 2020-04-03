@@ -20,6 +20,8 @@ public abstract class Option extends abstractVoiture {
 		return voiture.getDescription() + description;
 	}
 
- 
+ public void setDescription(String s) {
+	 this.description = s;
+ }
   
 }
