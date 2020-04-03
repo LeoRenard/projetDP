@@ -1,23 +1,18 @@
 package voiture;
 
-import java.util.ArrayList;
-
 import assurance.Assurance;
 import assurance.AucuneAssurance;
 import carburant.Carburant;
 import marque.Marque;
-import option.Option;
 
 public abstract class Voiture {
 	
-	protected float prix;
-	protected String nom;
-	
-	protected ArrayList<Option> options;
-	
-	protected Assurance assurance = new AucuneAssurance();
-	protected Carburant carburant;
-	protected Marque marque;
+	 public float prix;
+	 String nom;
+		
+	 Assurance assurance = new AucuneAssurance();
+	 Carburant carburant;
+	 Marque marque;
 
 	public void infoConsommation() {
 		carburant.infos();
@@ -25,11 +20,6 @@ public abstract class Voiture {
 	
 	public void infoAssurance() {
 		assurance.infosAssurance();
-	}
-	
-	public void addOption(Option option) {
-		this.options.add(option);
-		this.prix+=option.getPrix();
 	}
 
 	public void setPrix (float newVar) {
@@ -46,14 +36,6 @@ public abstract class Voiture {
 
 	public String getNom () {
 		return nom;
-	}
-
-	public void setOptions (ArrayList<Option> newVar) {
-		options = newVar;
-	}
-
-	public ArrayList<Option> getOptions () {
-		return options;
 	}
 
 	public void setAssurance (Assurance newVar) {
@@ -83,11 +65,7 @@ public abstract class Voiture {
 	public String toString() {
 		String o = "";
 		int i = 1;
-		for(Option opt : options) {
-			o += "Option n°"+i+" : "+opt.toString()+"\n";
-			i++;
-		}
-		return nom+", type : "+carburant.toString()+"\n"+o+"Coût total = "+this.prix+" euros"+"\n";
+		return nom+", type : "+carburant.toString()+"\n"+o+"Coût total = "+prix+" euros"+"\n";
 	}
 
 	public void afficher() {

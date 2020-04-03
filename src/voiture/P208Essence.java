@@ -1,10 +1,7 @@
 package voiture;
 
-import java.util.ArrayList;
-
 import carburant.Essence;
 import marque.Peugeot;
-import option.Option;
 
 public class P208Essence extends Voiture{
 	
@@ -14,7 +11,6 @@ public class P208Essence extends Voiture{
 		nom = marque.nom()+" 208 Essence";
 		prix = marque.prix()+4000f;
 		
-		options = new ArrayList<Option>();
 	}
 
 }

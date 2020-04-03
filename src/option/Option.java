@@ -10,18 +10,23 @@ public abstract class Option extends Voiture {
 
 	Voiture voiture;
 	String description;
-	float cout;
-  
-  public float getCout() {
-		return voiture.getPrix() + cout;
-	}
-	
-  public String getDescription() {
-		return voiture.toString() + description;
-	}
+	float prix; 
+
 
  public void setDescription(String s) {
 	 this.description = s;
  }
   
+ public void addPrix(float cout) {
+	prix = prix + cout;
+	System.out.println(prix);
+ }
+ 
+ public void afficher() {
+		System.out.println(getDescription());
+	}
+ 
+ public String getDescription() {
+		return voiture.toString();
+	}
 }
