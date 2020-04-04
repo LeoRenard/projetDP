@@ -19,7 +19,6 @@ public abstract class Option extends Voiture {
   
  public void addPrix(float cout) {
 	prix = prix + cout;
-	System.out.println(prix);
  }
  
  public void afficher() {
@@ -27,6 +26,12 @@ public abstract class Option extends Voiture {
 	}
  
  public String getDescription() {
-		return voiture.toString();
+		return this.toString() + description;
+	}
+ 
+ public String toString() {
+		String o = "";
+		int i = 1;
+		return voiture.getNom()+", type : "+voiture.getCarburant().toString()+"\n"+o+"Coût total = "+prix+" euros"+"\n";
 	}
 }

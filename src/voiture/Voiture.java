@@ -7,7 +7,7 @@ import marque.Marque;
 
 public abstract class Voiture {
 	
-	 public float prix;
+	 float prix;
 	 String nom;
 		
 	 Assurance assurance = new AucuneAssurance();
