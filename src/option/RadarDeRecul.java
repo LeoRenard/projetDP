@@ -9,9 +9,13 @@ public class RadarDeRecul extends Option {
 
   public RadarDeRecul (Voiture voiture) { 
 	  this.voiture = voiture;
-	  this.prix = voiture.getPrix();
+	  System.out.println(voiture.getPrix());
 	  this.setDescription("Option : Radar de recul");
-	  this.addPrix(1500);
+	  this.prix = voiture.getPrix();
+	  System.out.println(prix);
   };
  
+  public float getPrix() {
+	  return voiture.getPrix() + 1500;
+  }
 }

@@ -16,22 +16,16 @@ public abstract class Option extends Voiture {
  public void setDescription(String s) {
 	 this.description = s;
  }
-  
- public void addPrix(float cout) {
-	prix = prix + cout;
- }
  
  public void afficher() {
-		System.out.println(getDescription());
+		System.out.println(getDescription() + affichePrix());
 	}
  
  public String getDescription() {
-		return this.toString() + description;
+		return voiture.getDescription() + description + "\n";
 	}
  
- public String toString() {
-		String o = "";
-		int i = 1;
-		return voiture.getNom()+", type : "+voiture.getCarburant().toString()+"\n"+o+"Coût total = "+prix+" euros"+"\n";
-	}
+ public String affichePrix() {
+	 return "Coût total = "+getPrix()+" euros"+"\n";
+ }
 }

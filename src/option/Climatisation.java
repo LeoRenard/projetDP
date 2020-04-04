@@ -9,9 +9,12 @@ public class Climatisation extends Option {
 
   public Climatisation (Voiture voiture) {
 	  this.voiture = voiture;
-	  this.prix = voiture.getPrix();
 	  this.setDescription("Option : Climatisation");
-	  this.addPrix(75);
+	  this.prix = voiture.getPrix();
   };
 
+  public float getPrix() {
+	  return voiture.getPrix() + 675;
+  }
+  
 }

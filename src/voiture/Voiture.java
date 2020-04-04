@@ -11,7 +11,7 @@ public abstract class Voiture {
 	 String nom;
 		
 	 Assurance assurance = new AucuneAssurance();
-	 Carburant carburant;
+	 protected Carburant carburant;
 	 Marque marque;
 
 	public void infoConsommation() {
@@ -63,19 +63,28 @@ public abstract class Voiture {
 	}
 
 	public String toString() {
+		String s = null;
 		String o = "";
-		int i = 1;
-		return nom+", type : "+carburant.toString()+"\n"+o+"Coût total = "+prix+" euros"+"\n";
+		s+= nom+", type : "+carburant.toString()+"\n";
+		if(assurance != null)s+= "Ce vehicule est assuré " + "\n";
+		else s+= "Ce vehicule n'est pas assuré"  + "\n";
+		return s; 
 	}
 
 	public void afficher() {
-		System.out.println(toString());
+		System.out.println(toString()+affichePrix());
 	}
-	
 	
 	public void afficherNom() {
 		System.out.println(this.nom);
 	}
+
+	public String getDescription() {
+		return this.toString();
+	}
 	
+	public String affichePrix() {
+		return "Coût total = "+getPrix()+" euros"+"\n";
+	}
 
 }

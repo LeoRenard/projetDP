@@ -6,8 +6,12 @@ public class Attelage extends Option{
 
 	public Attelage (Voiture voiture) {
 		  this.voiture = voiture;
-		  this.prix = voiture.getPrix();
 		  this.setDescription("Option : Attelage ");
-		  this.addPrix(50);
+		  this.prix = voiture.getPrix();
 	  };
+	  
+	  public float getPrix() {
+		  return voiture.getPrix() + 800;
+	  }
+	  
 }
