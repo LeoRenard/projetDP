@@ -63,16 +63,12 @@ public abstract class Voiture {
 	}
 
 	public String toString() {
-		String s = null;
-		String o = "";
-		s+= nom+", type : "+carburant.toString()+"\n";
-		if(assurance != null)s+= "Ce vehicule est assuré " + "\n";
-		else s+= "Ce vehicule n'est pas assuré"  + "\n";
-		return s; 
+		return nom+"\n"; 
 	}
 
 	public void afficher() {
 		System.out.println(toString()+affichePrix());
+		
 	}
 	
 	public void afficherNom() {
