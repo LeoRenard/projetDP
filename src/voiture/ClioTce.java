@@ -1,10 +1,7 @@
 package voiture;
 
-import java.util.ArrayList;
-
 import carburant.Essence;
 import marque.Renault;
-import option.Option;
 
 public class ClioTce extends Voiture{
 
@@ -14,7 +11,6 @@ public class ClioTce extends Voiture{
 		nom = marque.nom()+" Clio Tce";
 		prix = marque.prix()+4000f;
 		
-		options = new ArrayList<Option>();
 	}
 	
 
