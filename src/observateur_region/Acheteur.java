@@ -1,5 +1,6 @@
 package observateur_region;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import main.Concessionnaire;
 import voiture.Voiture;
@@ -23,6 +24,8 @@ public class Acheteur implements Observateur{
 	private ArrayList<Voiture> voitures;
 
 	private ArrayList<Concessionnaire> list_concessionnaire_region;
+	
+	private Concessionnaire concessionnaire;
 
 	private Sujet concessionnairesRegion;
 
@@ -131,7 +134,7 @@ public class Acheteur implements Observateur{
 		}
 		else {
 			for(int i = 0; i < list_concessionnaire_region.size(); i++) {
-				a+=" - "+list_concessionnaire_region.get(i).getNom()+"\n";
+				a+=i+") "+list_concessionnaire_region.get(i).getNom()+"\n";
 			}
 		}
 		System.out.println(a);
@@ -139,7 +142,7 @@ public class Acheteur implements Observateur{
 
 	public void afficherVoitureParticulier() {
 
-		String voit = "Voitures : "+"\n";
+		String voit = "Voitures de "+this.getNom()+" : "+"\n";
 		for(Voiture v : voitures) {
 			voit+= "- "+v.getNom()+"\n";
 		}
@@ -150,6 +153,5 @@ public class Acheteur implements Observateur{
 	public void afficher() {
 		System.out.println("Acheteur => "+nom+" "+prenom+" BUDGET : "+budget+" euros");
 	}
-
 
 }

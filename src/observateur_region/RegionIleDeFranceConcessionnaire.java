@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import main.Concessionnaire;
 
-public class RegionCentreConcessionnaire implements Sujet {
-	
+public class RegionIleDeFranceConcessionnaire implements Sujet {
+
 	private ArrayList<Observateur> observateurs = new ArrayList<Observateur>();
-	public ArrayList <Concessionnaire> list_concessionnaire_region = new ArrayList<Concessionnaire>();
+	private ArrayList <Concessionnaire> list_concessionnaire_region = new ArrayList<Concessionnaire>();
 	
 	@Override
 	public void enregistrerObservateur(Observateur o) {

@@ -4,9 +4,9 @@ import carburant.Essence;
 import voiture.Voiture;
 
 public class AdaptateurMoto extends Voiture{
-	Moto moto;
+	MotoAbstraite moto;
 	
-	public AdaptateurMoto(Moto moto) {
+	public AdaptateurMoto(MotoAbstraite moto) {
 		this.moto = moto;
 		carburant = new Essence();
 		
@@ -15,5 +15,13 @@ public class AdaptateurMoto extends Voiture{
 	@Override
 	public void afficher() {
 		moto.info();
+	}
+	
+	public String toStringNomPrix() {
+		return moto.nom+" "+moto.prix+" euros";
+	}
+	
+	public String getNom() {
+		return moto.nom;
 	}
 }

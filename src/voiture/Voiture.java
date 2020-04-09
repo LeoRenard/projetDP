@@ -12,7 +12,7 @@ public abstract class Voiture {
 		
 	 Assurance assurance = new AucuneAssurance();
 	 protected Carburant carburant;
-	 Marque marque;
+	 protected Marque marque;
 
 	public void infoConsommation() {
 		carburant.infos();
@@ -65,7 +65,11 @@ public abstract class Voiture {
 	public String toString() {
 		return nom+"\n"; 
 	}
-
+	
+	public String toStringNomPrix() {
+		return nom+" "+prix+" euros";
+	}
+	
 	public void afficher() {
 		System.out.println(toString()+affichePrix());
 		
