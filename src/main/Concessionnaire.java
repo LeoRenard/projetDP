@@ -310,7 +310,7 @@ public class Concessionnaire {
 		String[] option = initOptionVoiture();
 		String str = null;
 		System.out.println("actuellement votre voiture est composé de : " + "\n" + v.toStringNomPrix());
-		System.out.println("souhaitez vous ajouter une optionà votre voiture ?");
+		System.out.println("souhaitez vous ajouter une option à votre voiture ?");
 		System.out.println("les options disponible sont : ");
 		afficheTabEnString(option);
 
