@@ -1,7 +1,6 @@
 package voiture;
 
 import assurance.Assurance;
-import assurance.AucuneAssurance;
 import carburant.Carburant;
 import marque.Marque;
 
@@ -10,7 +9,7 @@ public abstract class Voiture {
 	 float prix;
 	 String nom;
 		
-	 Assurance assurance = new AucuneAssurance();
+	 Assurance assurance;
 	 protected Carburant carburant;
 	 protected Marque marque;
 

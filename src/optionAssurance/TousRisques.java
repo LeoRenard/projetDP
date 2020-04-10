@@ -2,9 +2,9 @@ package optionAssurance;
 
 import assurance.Assurance;
 
-public class tousRisque extends optionAssurance {
+public class TousRisques extends OptionAssurance {
 	  
-	public tousRisque (Assurance assurance) {
+	public TousRisques (Assurance assurance) {
 		this.assurance = assurance;
 		this.description = "L'assurance tous risques couvre tout les dommages accidentels. "
 				+"\n"+"Rôle important si vous êtes responsable d'un accident. "

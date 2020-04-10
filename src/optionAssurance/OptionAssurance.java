@@ -3,7 +3,7 @@ package optionAssurance;
 import assurance.Assurance;
 import assurance.AssuranceRespCivile;
 
-public abstract class optionAssurance implements Assurance{
+public abstract class OptionAssurance implements Assurance{
 	Assurance assurance;
 	float prix;
 	String description;
