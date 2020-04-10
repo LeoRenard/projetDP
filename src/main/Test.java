@@ -129,13 +129,6 @@ public class Test {
 		concessionnaire4.addAcheteur(acheteur1);
 		concessionnaire4.afficher();
 		concessionnaire4.afficherVendeur();
-		//Mettre en place decorateur options, assurances 
-		//Soit tu le fais dans la methode transaction() de la classe Concessionnaire (info dans la méthode)
-		//Soit tu le fais ici, dans ce cas là tu enleves la methode ci dessous (transaction() )
-		//Dans concessionnaire4 t'as vendeur1, vendeur2 et vendeur3
-		//Dans ce concessionnaire t'as clioTce2 et C2Diesel donc tu fais tes decorateurs et ensuite tu appelles 
-		//transaction(Voiture voiture, Vendeur vendeur)
-		
 		
 		concessionnaire4.transaction();
 		
@@ -148,10 +141,6 @@ public class Test {
 		concessionnaire2.addAcheteur(acheteur3);
 		concessionnaire2.afficher();
 		concessionnaire2.afficherVendeur();
-		//Mettre en place decorateur options, assurances
-		//Même principe qu'au dessus 
-		//Vendeur de concessionnaire2 : vendeur4, vendeur5
-		//Voiture dispo : C2Diesel, kawazakiZ800 et yamahaMT07
 		
 		concessionnaire2.transaction();
 		
