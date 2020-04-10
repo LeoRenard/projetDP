@@ -5,10 +5,14 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+import assurance.Assurance;
+import assurance.AssuranceRespCivile;
 import observateur_region.Acheteur;
 import singleton.HistoriqueVenteSingleton;
 import voiture.Voiture;
 import option.*;
+import optionAssurance.TousRisques;
+import optionAssurance.Vol;
 
 /**
  * Class Concessionnaire
@@ -91,7 +95,7 @@ public class Concessionnaire {
 					System.out.println("Achat bien effectué !");
 
 					String msgJournalisation = "\n" + voiture.getNom() + " prix : " + voiture.getPrix()
-							+ " euros; Vendu par " + vendeur.getNom();
+					+ " euros; Vendu par " + vendeur.getNom();
 					HistoriqueVenteSingleton.getInstance().journaliser(msgJournalisation, this);
 					HistoriqueVenteSingleton.getInstance().terminerJournal();
 
@@ -117,7 +121,7 @@ public class Concessionnaire {
 			}
 
 			System.out
-					.println("Avec quel vendeur voulez-vous réaliser la transaction ? (Entrer le numero correspondant");
+			.println("Avec quel vendeur voulez-vous réaliser la transaction ? (Entrer le numero correspondant");
 			this.afficherVendeur();
 			Integer indexVendeur = null;
 			while (indexVendeur == null) {
@@ -305,62 +309,111 @@ public class Concessionnaire {
 		System.out.println(toString());
 	}
 
+	//fonction qui prend en entré une voiture et renvoie une voiture avec les options que l'utilisateur sélectionne.
 	public Voiture ajoutOptionVoiture(Voiture v) {
+		Scanner scc = new Scanner(System.in);
 		boolean fin = false;
+		boolean end2 = false;
 		String[] option = initOptionVoiture();
-		String str = null;
 		System.out.println("actuellement votre voiture est composé de : " + "\n" + v.toStringNomPrix());
-		System.out.println("souhaitez vous ajouter une option à votre voiture ?");
+		System.out.println("souhaitez vous ajouter une optionà votre voiture ?");
 		System.out.println("les options disponible sont : ");
 		afficheTabEnString(option);
 
-		while (fin == false) {
+		while (fin == false || end2 == false) {
 
-			str = sc.nextLine();
+			String str = "-1";
+			while(str.equals("-1"))str = scc.nextLine();
 
 			if (str != "non" || str != "NON" || str != "Non") {
-				
+
 				if(str.equals("1")) {
-					v = new Attelage(v);
+					if(!option[0].equals("no"))v = new Attelage(v);
 					option[0] = "no";
 				}
 				else if(str.equals("2")) {
-					v = new Climatisation(v);
+					if(!option[1].equals("no"))v = new Climatisation(v);
 					option[1] = "no";
 				}
 				else if(str.equals("3")) {
-					v = new RadarDeRecul(v);
+					if(!option[2].equals("no"))v = new RadarDeRecul(v);
 					option[2] = "no";
 				}
 				else if(str.equals("4")) {
-					v = new ToitOuvrant(v);
+					if(!option[3].equals("no"))v = new ToitOuvrant(v);
 					option[3] = "no";
 				}
 				else {
 					System.out.println("Entrez une valeur correct svp");
+					fin = true;
 				}
-				
+
+				end2 = tousAjouter(option);
 				v.afficher();
 				System.out.println("Option ajouté ! les options encore disponible sont : ");
 				afficheTabEnString(option);
 				System.out.println("Entrez un numéro de l'option ou entrez NON");
-				
+
 			}else fin = true;
 
-		
-				
-			
+
+
+
 		}
 		return v;
 	}
 
 	public String[] initOptionVoiture() {
-		String[] tab = { "Attelage", "Climatisation", null, "Toit Ouvrant" };
+		String[] tab = { "Attelage", "Climatisation", "Radar De recul", "Toit Ouvrant" };
 		return tab;
 	}
 
+	//fonction qui prend en entré une assurance et la return avec des options 
+	public Assurance ajoutOptionAssurance() {
+		boolean end = false;
+		boolean end2 = false;
+		Scanner scc = new Scanner(System.in);
+		Assurance assurance = new AssuranceRespCivile();
+		String[] option = initOptionAssurance();
+
+		System.out.println("Vous avez actuellement une assurance basique, voulez vous ajoutez des options ? ");
+		System.out.println("voici ce qui vous est proposé :");
+		afficheTabEnString(option);
+		System.out.println("Entrez le numéro de votre séléction ou entrez non svp");
+
+		while(end == false || end == false) {
+			String str = "-1";
+			while(str.equals("-1"))str = scc.nextLine();
+
+			switch(str) {
+			case "1":
+				if(!option[0].equals("no"))assurance = new TousRisques(assurance);
+				option[0] = "no";
+			case "2":
+				if(!option[1].equals("no"))assurance = new Vol(assurance);
+				option[1] = "no";
+			case "Non":
+				end = true;
+				break;
+			case "non":
+				end = true;
+				break;
+			case "NON":
+				end = true;
+				break;
+			}
+
+			end2 = tousAjouter(option);
+			System.out.println("Option ajouté ! les options encore disponible sont : ");
+			afficheTabEnString(option);
+			System.out.println("Entrez un numéro de l'option ou entrez NON");
+
+		}
+		return assurance;
+	}
+
 	public String[] initOptionAssurance() {
-		String[] tab = { "Attelage", "Climatisation", "Option", "Radar de Recul", "Toit Ouvrant" };
+		String[] tab = { "tousRisque", "Vol" };
 		return tab;
 	}
 
@@ -369,5 +422,14 @@ public class Concessionnaire {
 			if (tab[i] != "no")
 				System.out.println((i + 1) + " : " + tab[i] + "." + "\n");
 		}
+	}
+
+	public boolean tousAjouter(String[] tab) {
+		boolean res = true;
+		for(int i = 0; i< tab.length;i++) {
+			if(!tab[i].equals("no"))res = false;
+		}
+		return res;
+
 	}
 }
